@@ -27,7 +27,7 @@ describe('CLI Program', () => {
       const calls = consoleLogSpy.mock.calls.map((call: any[]) => call.join(' '));
       const output = calls.join('\n');
       expect(output).toContain('datemath-cli');
-      expect(output).toContain('v1.0.0');
+      expect(output).toMatch(/v\d+\.\d+\.\d+/);
     });
   });
 
@@ -37,7 +37,7 @@ describe('CLI Program', () => {
     });
 
     it('should have correct version', () => {
-      expect(program.version()).toBe('1.0.0');
+      expect(program.version()).toMatch(/\d+\.\d+\.\d+/);
     });
 
     it('should have description', () => {

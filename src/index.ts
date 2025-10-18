@@ -4,6 +4,14 @@ import gradient from 'gradient-string';
 import * as p from '@clack/prompts';
 import ora from 'ora';
 import figures from 'figures';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const packageJson = JSON.parse(readFileSync(join(__dirname, '../package.json'), 'utf-8'));
+const version = packageJson.version;
 
 const program = new Command();
 
@@ -17,7 +25,7 @@ export const welcome = () => {
   console.log(sopGradient.multiline(asciiArt));
   console.log(chalk.dim('─'.repeat(40)));
   console.log(
-    chalk.bold.cyan('datemath-cli') + chalk.dim(' v1.0.0') + 
+    chalk.bold.cyan('datemath-cli') + chalk.dim(` v${version}`) + 
     chalk.dim(' - Date calculations in natural language')
   );
   console.log(chalk.dim('─'.repeat(40)));
@@ -90,7 +98,7 @@ export const formatDuration = (days: number): string => {
 program
   .name('datemath')
   .description('A beautiful CLI for date calculations in natural language')
-  .version('1.0.0')
+  .version(version)
   .hook('preAction', () => {
     welcome();
   });
