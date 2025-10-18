@@ -16,6 +16,8 @@ export async function calcCommand() {
       { value: 'subtract', label: 'Subtract time from a date' },
     ],
   });
+
+  let quickCommand = '';
   
   if (p.isCancel(operation)) {
     p.cancel('Operation cancelled');
@@ -54,6 +56,8 @@ export async function calcCommand() {
       console.log(chalk.cyan(`📊 Result:`));
       console.log(chalk.bold.green(`${days} days ${operation === 'since' ? 'since' : 'until'} ${formatHumanDate(targetDate)}`));
       console.log(chalk.dim(`  = ${formatDuration(days)}`));
+      
+      quickCommand = `datemath ${operation} ${date}`;
       
     } else if (operation === 'between') {
       const date1 = await p.text({
@@ -103,6 +107,8 @@ export async function calcCommand() {
       console.log(chalk.cyan(`📊 Result:`));
       console.log(chalk.bold.green(`${days} days between dates`));
       console.log(chalk.dim(`  = ${formatDuration(days)}`));
+      
+      quickCommand = `datemath between ${date1} ${date2}`;
       
     } else if (operation === 'add' || operation === 'subtract') {
       const date = await p.text({
@@ -180,9 +186,18 @@ export async function calcCommand() {
       console.log(chalk.cyan(`📊 Result:`));
       console.log(chalk.bold.green(formatHumanDate(resultDate)));
       console.log(chalk.dim(`ISO format: ${resultDate.toISOString().split('T')[0]}`));
+      
+      quickCommand = `datemath ${operation} ${date} ${amount} ${unit}`;
     }
     
     p.outro(chalk.green('✓ Calculation complete!'));
+    
+    if (quickCommand) {
+      console.log();
+      console.log(chalk.dim('💡 Tip: Next time, run this directly:'));
+      console.log(chalk.cyan(`   ${quickCommand}`));
+      console.log();
+    }
     
   } catch (error) {
     p.cancel(chalk.red('Error: ') + (error instanceof Error ? error.message : 'Unknown error'));
