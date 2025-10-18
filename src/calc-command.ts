@@ -190,8 +190,6 @@ export async function calcCommand() {
       quickCommand = `datemath ${operation} ${date} ${amount} ${unit}`;
     }
     
-    p.outro(chalk.green('✓ Calculation complete!'));
-    
     if (quickCommand) {
       const isGlobalInstall = !process.argv[1]?.includes('npx');
       const prefix = isGlobalInstall ? 'datemath' : 'npx datemath-cli';
