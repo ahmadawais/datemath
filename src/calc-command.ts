@@ -193,9 +193,13 @@ export async function calcCommand() {
     p.outro(chalk.green('✓ Calculation complete!'));
     
     if (quickCommand) {
+      const isGlobalInstall = !process.argv[1]?.includes('npx');
+      const prefix = isGlobalInstall ? 'datemath' : 'npx datemath-cli';
+      const tipCommand = quickCommand.replace('datemath', prefix);
+      
       console.log();
       console.log(chalk.dim('💡 Tip: Next time, run this directly:'));
-      console.log(chalk.cyan(`   ${quickCommand}`));
+      console.log(chalk.cyan(`   ${tipCommand}`));
       console.log();
     }
     
