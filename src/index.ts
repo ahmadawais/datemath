@@ -8,21 +8,18 @@ const program = new Command();
 
 export const welcome = () => {
   const asciiArt = `
-██████╗  █████╗ ████████╗███████╗    ███╗   ███╗ █████╗ ████████╗██╗  ██╗
-██╔══██╗██╔══██╗╚══██╔══╝██╔════╝    ████╗ ████║██╔══██╗╚══██╔══╝██║  ██║
-██║  ██║███████║   ██║   █████╗      ██╔████╔██║███████║   ██║   ███████║
-██║  ██║██╔══██║   ██║   ██╔══╝      ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║
-██████╔╝██║  ██║   ██║   ███████╗    ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║
-╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+█▀▄ ▄▀█ ▀█▀ █▀▀   █▀▄▀█ ▄▀█ ▀█▀ █░█
+█▄▀ █▀█ ░█░ ██▄   █░▀░█ █▀█ ░█░ █▀█
   `;
 
-  console.log(gradient.pastel.multiline(asciiArt));
-  console.log(chalk.dim('─'.repeat(70)));
+  const sopGradient = gradient(['#9EFFFF', '#B362FF', '#FB94FF']);
+  console.log(sopGradient.multiline(asciiArt));
+  console.log(chalk.dim('─'.repeat(40)));
   console.log(
     chalk.bold.cyan('datemath-cli') + chalk.dim(' v1.0.0') + 
     chalk.dim(' - Date calculations in natural language')
   );
-  console.log(chalk.dim('─'.repeat(70)));
+  console.log(chalk.dim('─'.repeat(40)));
   console.log();
 };
 

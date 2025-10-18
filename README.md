@@ -2,11 +2,9 @@
 
 A beautiful command-line tool for date calculations in natural language. Calculate days between dates, add/subtract time periods, and get human-readable date information.
 
-[![Version](https://img.shields.io/npm/v/datemath-cli.svg)](https://www.npmjs.com/package/datemath-cli)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Downloads](https://img.shields.io/npm/dt/datemath-cli.svg)](https://www.npmjs.com/package/datemath-cli)
-
-## 🎬 Demo
+[![Version](https://img.shields.io/npm/v/datemath-cli.svg?style=for-the-badge&logo=npm&logoColor=white&labelColor=000&color=fff)](https://www.npmjs.com/package/datemath-cli)
+[![License](https://img.shields.io/badge/license-MIT-fff?style=for-the-badge&labelColor=000&color=fff)](LICENSE)
+[![Downloads](https://img.shields.io/npm/dt/datemath-cli.svg?style=for-the-badge&logo=npm&logoColor=white&labelColor=000&color=fff)](https://www.npmjs.com/package/datemath-cli)
 
 ![DateMath CLI Demo](demo.svg)
 
