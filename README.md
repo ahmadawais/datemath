@@ -6,6 +6,10 @@ A beautiful command-line tool for date calculations in natural language. Calcula
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Downloads](https://img.shields.io/npm/dt/datemath-cli.svg)](https://www.npmjs.com/package/datemath-cli)
 
+## 🎬 Demo
+
+![DateMath CLI Demo](demo.svg)
+
 ## ✨ Features
 
 - 🎨 Beautiful gradient ASCII art welcome screen

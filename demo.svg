@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C77DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0AAFF;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      .terminal-bg { fill: #1e1e3f; }
+      .terminal-text { fill: #FAF9F6; font-family: 'Monaco', 'Menlo', 'Courier New', monospace; font-size: 14px; }
+      .terminal-prompt { fill: #9D4EDD; font-weight: bold; }
+      .terminal-output { fill: #C77DFF; }
+      .terminal-date { fill: #E0AAFF; }
+      .terminal-emoji { font-size: 16px; }
+      .gradient-text { fill: url(#purpleGradient); font-weight: bold; }
+      .dim-text { fill: #7F7F9F; }
+      .ascii-art { fill: url(#purpleGradient); font-family: monospace; font-size: 8px; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Terminal Background -->
+  <rect class="terminal-bg" width="800" height="500" rx="10"/>
+  
+  <!-- Terminal Header -->
+  <circle cx="20" cy="20" r="6" fill="#FF5F56"/>
+  <circle cx="40" cy="20" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="20" r="6" fill="#27C93F"/>
+  
+  <!-- ASCII Art Header -->
+  <text class="ascii-art" x="50" y="60">██████╗  █████╗ ████████╗███████╗    ███╗   ███╗ █████╗ ████████╗██╗  ██╗</text>
+  <text class="ascii-art" x="50" y="70">██╔══██╗██╔══██╗╚══██╔══╝██╔════╝    ████╗ ████║██╔══██╗╚══██╔══╝██║  ██║</text>
+  <text class="ascii-art" x="50" y="80">██║  ██║███████║   ██║   █████╗      ██╔████╔██║███████║   ██║   ███████║</text>
+  <text class="ascii-art" x="50" y="90">██║  ██║██╔══██║   ██║   ██╔══╝      ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║</text>
+  <text class="ascii-art" x="50" y="100">██████╔╝██║  ██║   ██║   ███████╗    ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║</text>
+  <text class="ascii-art" x="50" y="110">╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝</text>
+  
+  <text class="dim-text" x="50" y="125">──────────────────────────────────────────────────────────────────────</text>
+  <text class="gradient-text" x="50" y="145">datemath-cli</text>
+  <text class="dim-text" x="180" y="145">v1.1.0 - Date calculations in natural language</text>
+  <text class="dim-text" x="50" y="160">──────────────────────────────────────────────────────────────────────</text>
+  
+  <!-- Command 1: between -->
+  <text class="terminal-prompt" x="50" y="190">$</text>
+  <text class="terminal-text" x="70" y="190">datemath between 2025-01-01 2025-10-17</text>
+  
+  <text class="terminal-emoji" x="50" y="215">📊</text>
+  <text class="terminal-output" x="75" y="215">Time between Wednesday, January 1, 2025 and Friday, October 17, 2025:</text>
+  <text class="gradient-text" x="75" y="235" font-size="18px">289 days</text>
+  
+  <!-- Command 2: add -->
+  <text class="terminal-prompt" x="50" y="270">$</text>
+  <text class="terminal-text" x="70" y="270">datemath add 2025-10-17 30 days</text>
+  
+  <text class="terminal-emoji" x="50" y="295">📊</text>
+  <text class="terminal-output" x="75" y="295">Friday, October 17, 2025 + 30 days:</text>
+  <text class="gradient-text" x="75" y="315" font-size="16px">Saturday, November 16, 2025</text>
+  <text class="dim-text" x="75" y="335">ISO format: 2025-11-16</text>
+  
+  <!-- Command 3: to -->
+  <text class="terminal-prompt" x="50" y="370">$</text>
+  <text class="terminal-text" x="70" y="370">datemath to 2025-12-25</text>
+  
+  <text class="terminal-emoji" x="50" y="395">📊</text>
+  <text class="terminal-output" x="75" y="395">Time until Thursday, December 25, 2025:</text>
+  <text class="gradient-text" x="75" y="415" font-size="18px">69 days</text>
+  
+  <!-- Cursor -->
+  <text class="terminal-prompt" x="50" y="450">$</text>
+  <rect x="70" y="438" width="10" height="16" fill="#9D4EDD" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0;0.7" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Footer -->
+  <text class="dim-text" x="50" y="480" font-size="12px">Made with 💜 by Ahmad Awais</text>
+</svg>
