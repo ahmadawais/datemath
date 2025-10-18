@@ -10,7 +10,6 @@ const program = new Command();
 export const welcome = () => {
   const asciiArt = `
 █▀▄ ▄▀█ ▀█▀ █▀▀   █▀▄▀█ ▄▀█ ▀█▀ █░█
-
 █▄▀ █▀█ ░█░ ██▄   █░▀░█ █▀█ ░█░ █▀█
   `;
 
