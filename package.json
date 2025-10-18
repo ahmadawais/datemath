@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "datemath": "./dist/index.js"
+    "datemath": "dist/index.js"
   },
   "files": [
     "dist"
@@ -30,7 +30,7 @@
   "author": "Ahmad Awais <me@ahmadawais.com> (https://ahmadawais.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadawais/datemath-cli.git"
+    "url": "git+https://github.com/ahmadawais/datemath-cli.git"
   },
   "bugs": {
     "url": "https://github.com/ahmadawais/datemath-cli/issues"
@@ -40,9 +40,10 @@
   "devDependencies": {
     "@types/gradient-string": "^1.1.6",
     "@types/node": "^20.10.5",
+    "@vitest/coverage-v8": "^3.2.4",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
-    "vitest": "^1.1.0"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@clack/prompts": "^0.7.0",
