@@ -39,7 +39,7 @@
   <text class="terminal-prompt" x="50" y="185">$</text>
   <text class="terminal-text" x="70" y="185">datemath between 2025-01-01 2025-10-17</text>
   
-  <text class="terminal-emoji" x="50" y="210">📊</text>
+  <text class="terminal-emoji" x="50" y="210">❯</text>
   <text class="terminal-output" x="75" y="210">Time between Wednesday, January 1, 2025 and Friday, October 17, 2025:</text>
   <text class="gradient-text" x="75" y="230" font-size="18px">289 days</text>
   
@@ -47,7 +47,7 @@
   <text class="terminal-prompt" x="50" y="265">$</text>
   <text class="terminal-text" x="70" y="265">datemath add 2025-10-17 30 days</text>
   
-  <text class="terminal-emoji" x="50" y="290">📊</text>
+  <text class="terminal-emoji" x="50" y="290">❯</text>
   <text class="terminal-output" x="75" y="290">Friday, October 17, 2025 + 30 days:</text>
   <text class="gradient-text" x="75" y="310" font-size="16px">Saturday, November 16, 2025</text>
   <text class="dim-text" x="75" y="330">ISO format: 2025-11-16</text>
@@ -56,7 +56,7 @@
   <text class="terminal-prompt" x="50" y="365">$</text>
   <text class="terminal-text" x="70" y="365">datemath to 2026-01-01</text>
   
-  <text class="terminal-emoji" x="50" y="390">📊</text>
+  <text class="terminal-emoji" x="50" y="390">❯</text>
   <text class="terminal-output" x="75" y="390">Time until Thursday, January 1, 2026:</text>
   <text class="gradient-text" x="75" y="410" font-size="18px">75 days</text>
   
@@ -67,5 +67,5 @@
   </rect>
   
   <!-- Footer -->
-  <text class="dim-text" x="50" y="475" font-size="12px">Made with 💜 by Ahmad Awais</text>
+  <text class="dim-text" x="50" y="475" font-size="12px">Made with ♥ by Ahmad Awais</text>
 </svg>
