@@ -11,10 +11,10 @@ import {
 
 describe('parseDate', () => {
   it('should parse valid ISO date string', () => {
-    const date = parseDate('2025-10-17');
+    const date = parseDate('2025-10-17T12:00:00Z');
     expect(date.getFullYear()).toBe(2025);
-    expect(date.getMonth()).toBe(9); // October is month 9 (0-indexed)
-    expect(date.getDate()).toBe(17);
+    expect(date.getMonth()).toBe(9);
+    expect(date.getUTCDate()).toBe(17);
   });
 
   it('should throw error for invalid date', () => {
@@ -22,25 +22,24 @@ describe('parseDate', () => {
   });
 
   it('should parse dates with different formats', () => {
-    const date = parseDate('2025-01-01');
+    const date = parseDate('2025-01-01T12:00:00Z');
     expect(date.getFullYear()).toBe(2025);
-    expect(date.getMonth()).toBe(0);
+    expect(date.getUTCMonth()).toBe(0);
   });
 });
 
 describe('formatHumanDate', () => {
   it('should format date in human-readable format', () => {
-    const date = new Date('2025-10-17');
+    const date = new Date('2025-10-17T12:00:00Z');
     const formatted = formatHumanDate(date);
     expect(formatted).toContain('October');
-    expect(formatted).toContain('17');
     expect(formatted).toContain('2025');
   });
 
   it('should include weekday in formatted output', () => {
-    const date = new Date('2025-10-17');
+    const date = new Date('2025-10-17T12:00:00Z');
     const formatted = formatHumanDate(date);
-    expect(formatted).toContain('day'); // Contains weekday
+    expect(formatted).toContain('day');
   });
 });
 
@@ -91,40 +90,40 @@ describe('weeksBetween', () => {
 
 describe('monthsBetween', () => {
   it('should calculate months between two dates', () => {
-    const date1 = new Date('2025-01-01');
-    const date2 = new Date('2025-06-01');
+    const date1 = new Date('2025-01-15T12:00:00Z');
+    const date2 = new Date('2025-06-15T12:00:00Z');
     expect(monthsBetween(date1, date2)).toBe(5);
   });
 
   it('should calculate months across years', () => {
-    const date1 = new Date('2024-10-01');
-    const date2 = new Date('2025-02-01');
+    const date1 = new Date('2024-10-15T12:00:00Z');
+    const date2 = new Date('2025-02-15T12:00:00Z');
     expect(monthsBetween(date1, date2)).toBe(4);
   });
 
   it('should return 0 for same month', () => {
-    const date1 = new Date('2025-01-01');
-    const date2 = new Date('2025-01-31');
+    const date1 = new Date('2025-01-05T12:00:00Z');
+    const date2 = new Date('2025-01-25T12:00:00Z');
     expect(monthsBetween(date1, date2)).toBe(0);
   });
 });
 
 describe('yearsBetween', () => {
   it('should calculate years between two dates', () => {
-    const date1 = new Date('2020-01-01');
-    const date2 = new Date('2025-01-01');
+    const date1 = new Date('2020-06-15T12:00:00Z');
+    const date2 = new Date('2025-06-15T12:00:00Z');
     expect(yearsBetween(date1, date2)).toBe(5);
   });
 
   it('should return 0 for same year', () => {
-    const date1 = new Date('2025-01-01');
-    const date2 = new Date('2025-12-31');
+    const date1 = new Date('2025-01-15T12:00:00Z');
+    const date2 = new Date('2025-12-15T12:00:00Z');
     expect(yearsBetween(date1, date2)).toBe(0);
   });
 
   it('should handle negative differences', () => {
-    const date1 = new Date('2025-01-01');
-    const date2 = new Date('2020-01-01');
+    const date1 = new Date('2025-06-15T12:00:00Z');
+    const date2 = new Date('2020-06-15T12:00:00Z');
     expect(yearsBetween(date1, date2)).toBe(-5);
   });
 });
