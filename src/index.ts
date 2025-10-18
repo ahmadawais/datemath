@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import gradient from 'gradient-string';
 import * as p from '@clack/prompts';
 import ora from 'ora';
+import figures from 'figures';
 
 const program = new Command();
 
@@ -100,7 +101,7 @@ program
   .description('Show today\'s date in human format')
   .action(() => {
     const today = new Date();
-    console.log(chalk.cyan('📅 Today is:'));
+    console.log(chalk.cyan(`${figures.star} Today is:`));
     console.log(chalk.bold.white(formatHumanDate(today)));
     console.log(chalk.dim(`ISO format: ${today.toISOString().split('T')[0]}`));
     console.log();
@@ -118,7 +119,7 @@ program
       const days = daysBetween(targetDate, today);
       const weeks = weeksBetween(targetDate, today);
       
-      console.log(chalk.cyan(`📊 Time since ${formatHumanDate(targetDate)}:`));
+      console.log(chalk.cyan(`${figures.info} Time since ${formatHumanDate(targetDate)}:`));
       console.log(chalk.bold.green(`${days} days`));
       
       if (options.verbose) {
@@ -127,7 +128,7 @@ program
       }
       console.log();
     } catch (error) {
-      console.error(chalk.red('✖ Error:'), error instanceof Error ? error.message : 'Unknown error');
+      console.error(chalk.red(`${figures.cross} Error:`), error instanceof Error ? error.message : 'Unknown error');
       process.exit(1);
     }
   });
@@ -148,10 +149,10 @@ program
       const isPast = targetDate < today;
       
       if (isPast) {
-        console.log(chalk.yellow(`⚠️  ${formatHumanDate(targetDate)} is in the past`));
+        console.log(chalk.yellow(`${figures.warning}  ${formatHumanDate(targetDate)} is in the past`));
       }
       
-      console.log(chalk.cyan(`📊 Time ${isPast ? 'since' : 'until'} ${formatHumanDate(targetDate)}:`));
+      console.log(chalk.cyan(`${figures.info} Time ${isPast ? 'since' : 'until'} ${formatHumanDate(targetDate)}:`));
       console.log(chalk.bold.green(`${days} days`));
       
       if (options.verbose) {
@@ -160,7 +161,7 @@ program
       }
       console.log();
     } catch (error) {
-      console.error(chalk.red('✖ Error:'), error instanceof Error ? error.message : 'Unknown error');
+      console.error(chalk.red(`${figures.cross} Error:`), error instanceof Error ? error.message : 'Unknown error');
       process.exit(1);
     }
   });
@@ -180,7 +181,7 @@ program
         ? [firstDate, secondDate] 
         : [secondDate, firstDate];
       
-      console.log(chalk.cyan(`📊 Time between ${formatHumanDate(earlier)} and ${formatHumanDate(later)}:`));
+      console.log(chalk.cyan(`${figures.info} Time between ${formatHumanDate(earlier)} and ${formatHumanDate(later)}:`));
       
       if (options.verbose) {
         const days = daysBetween(earlier, later);
@@ -218,7 +219,7 @@ program
       }
       console.log();
     } catch (error) {
-      console.error(chalk.red('✖ Error:'), error instanceof Error ? error.message : 'Unknown error');
+      console.error(chalk.red(`${figures.cross} Error:`), error instanceof Error ? error.message : 'Unknown error');
       process.exit(1);
     }
   });
@@ -259,12 +260,12 @@ program
           throw new Error(`Unknown unit: ${unit}`);
       }
       
-      console.log(chalk.cyan(`📊 ${formatHumanDate(baseDate)} + ${numAmount} ${unit}:`));
+      console.log(chalk.cyan(`${figures.info} ${formatHumanDate(baseDate)} + ${numAmount} ${unit}:`));
       console.log(chalk.bold.green(formatHumanDate(resultDate)));
       console.log(chalk.dim(`ISO format: ${resultDate.toISOString().split('T')[0]}`));
       console.log();
     } catch (error) {
-      console.error(chalk.red('✖ Error:'), error instanceof Error ? error.message : 'Unknown error');
+      console.error(chalk.red(`${figures.cross} Error:`), error instanceof Error ? error.message : 'Unknown error');
       process.exit(1);
     }
   });
@@ -306,12 +307,12 @@ program
           throw new Error(`Unknown unit: ${unit}`);
       }
       
-      console.log(chalk.cyan(`📊 ${formatHumanDate(baseDate)} - ${numAmount} ${unit}:`));
+      console.log(chalk.cyan(`${figures.info} ${formatHumanDate(baseDate)} - ${numAmount} ${unit}:`));
       console.log(chalk.bold.green(formatHumanDate(resultDate)));
       console.log(chalk.dim(`ISO format: ${resultDate.toISOString().split('T')[0]}`));
       console.log();
     } catch (error) {
-      console.error(chalk.red('✖ Error:'), error instanceof Error ? error.message : 'Unknown error');
+      console.error(chalk.red(`${figures.cross} Error:`), error instanceof Error ? error.message : 'Unknown error');
       process.exit(1);
     }
   });

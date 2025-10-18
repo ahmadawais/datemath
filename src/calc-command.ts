@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import * as p from '@clack/prompts';
 import ora from 'ora';
+import figures from 'figures';
 import { parseDate, formatHumanDate, daysBetween, formatDuration } from './index';
 
 export async function calcCommand() {
@@ -53,7 +54,7 @@ export async function calcCommand() {
       spinner.stop();
       
       console.log();
-      console.log(chalk.cyan(`📊 Result:`));
+      console.log(chalk.cyan(`${figures.info} Result:`));
       console.log(chalk.bold.green(`${days} days ${operation === 'since' ? 'since' : 'until'} ${formatHumanDate(targetDate)}`));
       console.log(chalk.dim(`  = ${formatDuration(days)}`));
       
@@ -104,7 +105,7 @@ export async function calcCommand() {
       spinner.stop();
       
       console.log();
-      console.log(chalk.cyan(`📊 Result:`));
+      console.log(chalk.cyan(`${figures.info} Result:`));
       console.log(chalk.bold.green(`${days} days between dates`));
       console.log(chalk.dim(`  = ${formatDuration(days)}`));
       
@@ -183,7 +184,7 @@ export async function calcCommand() {
       spinner.stop();
       
       console.log();
-      console.log(chalk.cyan(`📊 Result:`));
+      console.log(chalk.cyan(`${figures.info} Result:`));
       console.log(chalk.bold.green(formatHumanDate(resultDate)));
       console.log(chalk.dim(`ISO format: ${resultDate.toISOString().split('T')[0]}`));
       
@@ -196,7 +197,7 @@ export async function calcCommand() {
       const tipCommand = quickCommand.replace('datemath', prefix);
       
       console.log();
-      console.log(chalk.dim('💡 Tip: Next time, run this directly:'));
+      console.log(chalk.dim(`${figures.info} Tip: Next time, run this directly:`));
       console.log(chalk.cyan(`   ${tipCommand}`));
       console.log();
     }
