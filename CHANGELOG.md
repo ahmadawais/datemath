@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2025-10-18
+
+### Improved
+- Replaced emojis with figures package for better cross-platform terminal compatibility
+- CLI now displays correctly on all terminal types with proper fallback characters
+
 ## [1.5.2] - 2025-10-18
 
 ### Improved
