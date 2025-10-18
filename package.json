@@ -1,6 +1,6 @@
 {
   "name": "datemath-cli",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "A beautiful CLI for date calculations in natural language",
   "type": "module",
   "main": "./dist/index.js",
