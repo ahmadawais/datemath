@@ -42,6 +42,18 @@ npx datemath-cli <command>
 
 ## 📖 Usage
 
+### Quick Start
+
+Run without any commands to launch the interactive calculator:
+
+```bash
+npx datemath-cli
+# or if installed globally
+datemath
+```
+
+This will launch the interactive calculator mode where you can choose operations and enter dates step-by-step.
+
 ### Show Today's Date
 
 ```bash

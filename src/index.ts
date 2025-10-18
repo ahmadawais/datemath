@@ -326,5 +326,9 @@ program
 export { program };
 
 if (process.env.NODE_ENV !== 'test') {
-  program.parse();
+  if (process.argv.length === 2) {
+    calcCommand();
+  } else {
+    program.parse();
+  }
 }
