@@ -1,0 +1,2 @@
+- Use pnpm as package manager
+- Use Commander.js for CLI development
