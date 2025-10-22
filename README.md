@@ -71,6 +71,9 @@ ISO format: 2025-10-17
 
 ```bash
 datemath since 2025-01-01
+# or with natural language
+datemath since Friday
+datemath since yesterday
 ```
 
 **Output:**
@@ -192,12 +195,12 @@ This launches an interactive prompt where you can:
 | Command | Description | Example |
 |---------|-------------|---------|
 | `today` | Show today's date | `datemath today` |
-| `since <date>` | Days since a date | `datemath since 2025-01-01` |
-| `to <date>` | Days until a date | `datemath to 2025-12-25` |
-| `until <date>` | Alias for `to` | `datemath until 2025-12-25` |
-| `between <date1> <date2>` | Time between dates | `datemath between 2025-01-01 2025-10-17` |
-| `add <date> <amount> <unit>` | Add time to date | `datemath add 2025-01-01 30 days` |
-| `subtract <date> <amount> <unit>` | Subtract time from date | `datemath sub 2025-01-01 30 days` |
+| `since <date>` | Days since a date | `datemath since Friday` |
+| `to <date>` | Days until a date | `datemath to Saturday` |
+| `until <date>` | Alias for `to` | `datemath until tomorrow` |
+| `between <date1> <date2>` | Time between dates | `datemath between yesterday today` |
+| `add <date> <amount> <unit>` | Add time to date | `datemath add Monday 30 days` |
+| `subtract <date> <amount> <unit>` | Subtract time from date | `datemath sub Friday 7 days` |
 | `calc` | Interactive calculator | `datemath calc` |
 
 ### Options
@@ -209,13 +212,27 @@ This launches an interactive prompt where you can:
 
 ### Date Format
 
-All dates must be in **ISO 8601 format**: `YYYY-MM-DD`
+Dates can be provided in two formats:
 
-Examples:
+**1. ISO 8601 format**: `YYYY-MM-DD`
 - `2025-10-17` ✅
 - `2025-01-01` ✅
 - `10/17/2025` ❌
 - `17-10-2025` ❌
+
+**2. Natural language** (new!):
+- `today` - Current date
+- `yesterday` - Previous day
+- `tomorrow` - Next day
+- `Monday`, `Tuesday`, etc. - Most recent occurrence of that day
+
+Examples:
+```bash
+datemath since Friday
+datemath between yesterday tomorrow
+datemath add Monday 7 days
+datemath to Saturday
+```
 
 ### Time Units
 

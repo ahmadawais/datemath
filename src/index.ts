@@ -118,11 +118,11 @@ program
 // Since command - days since a date
 program
   .command('since <date>')
-  .description('Calculate days since a date (ISO format: YYYY-MM-DD)')
+  .description('Calculate days since a date (ISO format or natural: Friday, yesterday, etc.)')
   .option('-v, --verbose', 'Show detailed breakdown')
   .action((date: string, options) => {
     try {
-      const targetDate = parseDate(date);
+      const targetDate = parseNaturalDate(date);
       const today = new Date();
       const days = daysBetween(targetDate, today);
       const weeks = weeksBetween(targetDate, today);
@@ -145,11 +145,11 @@ program
 program
   .command('to <date>')
   .alias('until')
-  .description('Calculate days until a date (ISO format: YYYY-MM-DD)')
+  .description('Calculate days until a date (ISO format or natural: Friday, tomorrow, etc.)')
   .option('-v, --verbose', 'Show detailed breakdown')
   .action((date: string, options) => {
     try {
-      const targetDate = parseDate(date);
+      const targetDate = parseNaturalDate(date);
       const today = new Date();
       const days = daysBetween(today, targetDate);
       const weeks = weeksBetween(today, targetDate);
@@ -177,13 +177,13 @@ program
 // Between command - calculate difference between two dates
 program
   .command('between <date1> <date2>')
-  .description('Calculate time between two dates (ISO format: YYYY-MM-DD)')
+  .description('Calculate time between two dates (ISO format or natural language)')
   .option('-u, --unit <unit>', 'Unit: days, weeks, months, years', 'days')
   .option('-v, --verbose', 'Show all units')
   .action((date1: string, date2: string, options) => {
     try {
-      const firstDate = parseDate(date1);
-      const secondDate = parseDate(date2);
+      const firstDate = parseNaturalDate(date1);
+      const secondDate = parseNaturalDate(date2);
       
       const [earlier, later] = firstDate < secondDate 
         ? [firstDate, secondDate] 
@@ -235,10 +235,10 @@ program
 // Add command - add days/weeks/months to a date
 program
   .command('add <date> <amount> <unit>')
-  .description('Add time to a date (e.g., add 2025-01-01 30 days)')
+  .description('Add time to a date (e.g., add Friday 30 days)')
   .action((date: string, amount: string, unit: string) => {
     try {
-      const baseDate = parseDate(date);
+      const baseDate = parseNaturalDate(date);
       const numAmount = parseInt(amount);
       
       if (isNaN(numAmount)) {
@@ -282,10 +282,10 @@ program
 program
   .command('subtract <date> <amount> <unit>')
   .alias('sub')
-  .description('Subtract time from a date (e.g., subtract 2025-01-01 30 days)')
+  .description('Subtract time from a date (e.g., subtract Friday 30 days)')
   .action((date: string, amount: string, unit: string) => {
     try {
-      const baseDate = parseDate(date);
+      const baseDate = parseNaturalDate(date);
       const numAmount = parseInt(amount);
       
       if (isNaN(numAmount)) {
@@ -326,13 +326,14 @@ program
   });
 
 import { calcCommand } from './calc-command';
+import { parseNaturalDate } from './natural-parser';
 
 program
   .command('calc')
   .description('Interactive date calculator')
   .action(calcCommand);
 
-export { program };
+export { program, parseNaturalDate };
 
 if (process.env.NODE_ENV !== 'test') {
   if (process.argv.length === 2) {
